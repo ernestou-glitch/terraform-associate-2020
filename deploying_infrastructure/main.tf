@@ -3,10 +3,15 @@ resource "google_compute_address" "static" {
   name = "jenkins-ipv4-address"
 }
 
+data "google_compute_image" "debian_image" {
+  family  = "debian-9"
+  project = "debian-cloud"
+}
+
 resource "google_compute_instance" "default" {
 name         = "jenkins-terraform-vm"
 machine_type = "${var.machine_type}"
-zone         = "${var.zone}"
+zone         =  var.zone
 
 can_ip_forward = false
 description = "This is our Virtual Machine with Jenkis to do a CI/CD pipeline"
@@ -14,7 +19,7 @@ description = "This is our Virtual Machine with Jenkis to do a CI/CD pipeline"
 
 boot_disk {
     initialize_params {
-        image = "${var.image}"
+        image = data.google_compute_image.debian_image.self_link
         size = "20"
     }
 }
