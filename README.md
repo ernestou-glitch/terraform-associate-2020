@@ -221,3 +221,90 @@ terraform state mv
 TRUE
 
 FALSE
+
+### 21. Which of the following command can be used to view the specified version constraints for all providers used in the current configuration.
+
+terraform providers
+
+terraform provider
+
+terraform state show
+
+terraform plan
+
+### 22. You have created an AWS EC2 instance of type t2.micro through your terraform configuration file ec2.tf . Now you want to change the instance type from t2.micro to t2.medium. Accordingly you have changed your configuration file and and ran terraform plan. After running terraform plan you check the output and saw one instance will be updated from t2.micro --> t2.medium. After this you went to grab a coffee without running terraform apply and meanwhile a member of your team changed the instance type of that EC2 instance to t2.medium from aws console. After coming to your desk you run terraform apply. What will happen  ?
+
+terraform apply will through an error
+
+the instance type will be changed to t2.micro and again will be changed to t2.medium
+
+no resource will be updated and you will see the message "apply complete! resources: 0 added, 0 changed, 0 destroyed"
+
+1 resource will be updated and you will see the message "apply complete! resources: 0 added, 1 changed, 0 destroyed"
+
+### 23. Which of the below terraform commands do not run terraform refresh implicitly before taking actual action of the  command ? 
+
+terraform init
+
+terraform plan
+
+terraform apply
+
+terraform destroy
+
+### 24. Terraform works well in Windows but a Windows server is required.
+
+TRUE
+
+FALSE
+
+### 25. You have provisioned some aws resources in your test environment through Terraform for a POC work. After the POC, now you want to destroy the resources but before destroying them you want to check what resources will be getting destroyed through terraform. what are the options of doing that? (Select TWO)
+
+this is not possible
+
+use terraform destroy command
+
+use terraform plan -destroy command
+
+use terraform plan coomand
+
+### 26. Which of the below datatype is not supported by Terraform.
+
+List
+
+Map
+
+Object
+
+Array
+
+### 27. If you enable TF_LOG = DEBUG, the log will be stored in syslog.log file in the currect directory
+
+TRUE
+
+FALSE
+
+### 28. While using generic git repository as a module source, which of the below options allows terraform to select a specific version or tag instead of selecting the HEAD. 
+
+```
+module vpc {
+    source = "git:https://example.com/vpc.git?ref=v1.2.0"
+}
+```
+
+```
+module vpc {
+    source = "git:https://example.com/vpc.git#ref=v1.2.0"
+}
+```
+
+by default Terraform will clone and use the default branch in the selected repository and you can not override this
+
+append version argument as
+```
+module vpc {
+    source = "git:https://example.com/vpc.git?version=v1.2.0"
+}
+```
+
+### 29.
