@@ -307,4 +307,147 @@ module vpc {
 }
 ```
 
-### 29.
+### 29. You have created 2 workspaces PROD and RQA. You have switched to RQA and provisioned RQA infrastructure from this workspace. Where is your state file stored?  
+
+.terraform.d
+
+terraform.tfstate
+
+terraform.tfstate.RQA
+
+terraform.tfstate.d
+
+### 30. lookup retrieves the value of a single element from which of the below data type ?
+
+List
+
+Map
+
+Set
+
+String
+
+### 31.John wants to use two different regions to deploy two different EC2 instances. He has specified two provider blocks in his providers.tf file. 
+
+```
+provider "aws" { region = "us-east-1" }
+provider "aws" {  region = "us-west-2" }
+```
+
+### When he run terraform plan he encountered an error.  How to fix this?
+
+it cannot be fixed
+
+use alias for region = "us-west-2"
+
+use default keyword with region = "us-east-1"
+
+use another provider version
+
+### 32. Matt wants to import a manually created EC2 instance into terraform so that he can manage the EC2 instance through terraform going forward. He has written the configuration file of the EC2 instance before importing it to Terraform. Following is the code:
+
+```
+resource "aws.instance" "matt_ec2" {
+    ami = "ami-bg2640de"
+    instance_type = "t2.micro"
+    vpc_security_group_ids = [#sg-6ae7d613","sg-53370035"]
+    key_name = "mysecret"
+    subnet_id = "subnet-9e3cfbc5"
+}
+```
+### The instance id of that EC2 instance is i-0260835eb7e9bd40 How he can import data of EC2 to state file?
+
+terraform import aws_instance.i-0260835eb7e9bd40
+
+terraform import aws_instance.matt_ec2 i-0260835eb7e9bd40
+
+terraform import aws_instance.id = i-0260835eb7e9bd40
+
+terraform import i-0260835eb7e9bd40
+
+### 33. By default, a defined provisioner is a creation-time provisioner.
+
+TRUE
+
+FALSE
+
+### 34. Your company has been using Terraform Cloud for a some time now . But every team is creating their own modules , and there is no standardization of the modules , with each team creating the resources in their own unique way . You want to enforce a standardization of the modules across the enterprise . What should be your approach.
+
+upgrade to Terraform enterprise, since it is not possible in terraform cloud
+
+implement a Private moudle registry in Terraform cloud and ask teams to reference it
+
+upload modules in the terraform public module registry and ask teams to reference them
+
+create individual workspaces for each team and ask to share modules across workspaces
+
+### 35. Due to the way that the application code is written , the s3 bucket must be created before the test role is created , otherwise there will be a problem. How can you ensure that? 
+
+```
+resource "aws_s3_bucket" "example" {
+    bucket = "my-test-s3-terraform-bucket"
+...}
+
+resource "aws_iam_role" "test_role" {
+    name = "test_role"
+...}
+```
+### How can you ensure that? 
+
+create 2 separate terraform configurations and run them by one one
+
+this will be already taken care of by terraform native implicit dependency
+
+add explicit depedency using depends_on .This will ensure the correct order of resource creation
+
+this is not possible to control in terraform. Terraform will take care of it in a native way and create dependency graph that is best suited for the parallel resource creation.
+
+### 36. A data block requests that Terraform read from a given data source and export the result under the given local name.
+
+TRUE
+
+FALSE
+
+### 37. Which of the following type of variable allows multiple values of several distinct types to be grouped together as a single value? 
+
+List
+
+Object
+
+Tuple
+
+Map
+
+### 38. When using remote state, state is only ever held in memory when used by Terraform.
+
+TRUE
+
+FALSE
+
+### 39. Please identify the offerings which are unique to Terraform Enterprise , and not available in either Terraform OSS , or Terraform Cloud. Select four.
+
+SAML/SSO
+
+Audit Logs
+
+Sentinel
+
+Private Network Connectivity
+
+Clustering
+
+VCS Integration
+
+### 40. Which of the below are paid features of Terraform Cloud?
+
+Sentinel Policies
+
+Full API Coverage
+
+Private Mode Registry
+
+Roles/Team Management
+
+Cost Estimation
+
+Secure Variable Storage
