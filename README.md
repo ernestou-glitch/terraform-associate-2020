@@ -204,7 +204,7 @@ output.tf
 
 any files with names ending in .auto.tfvars or .auto.tfvars.json
 
-fines named exactly terraform.tfvars or terraform.tfvars.json
+files named exactly terraform.tfvars or terraform.tfvars.json
 
 ### 19. Which of the below commands will rename a EC2 instance in your state file without destroying and recreating it ? 
 
