@@ -252,6 +252,8 @@ terraform apply
 
 terraform destroy
 
+terraform import
+
 ### 24. Terraform works well in Windows but a Windows server is required.
 
 TRUE
