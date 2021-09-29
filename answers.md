@@ -15,7 +15,7 @@ TRUE
 provisioner "remote-exec" {
     inline = [
         "echo 0"
-        "echo"
+        "echo 1"
     ]
 }
 ```
