@@ -11,3 +11,7 @@ variable "gce_disk_size" {
     type = number
     description = "Size for the primary disk of the VM"
 }
+
+variable "machine_type" {
+    
+}
