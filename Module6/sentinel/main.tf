@@ -1,6 +1,6 @@
 resource "google_compute_instance" "default" {
     name = var.gce_name
-    machine_type = "f1-micro"
+    machine_type = var.machine_type
     zone = var.gce_zone
     # zone = ${var.gce_zone}
 
